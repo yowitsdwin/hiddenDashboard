@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#111827;
+color:white;
+text-align:center;
+padding-top:100px;
+}
+
+.card{
+background:#1f2937;
+padding:30px;
+border-radius:10px;
+width:400px;
+margin:auto;
+}
+
+.flag{
+color:#22c55e;
+font-weight:bold;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>User Dashboard</h2>
+
+<p id="welcome"></p>
+
+<p id="content"></p>
+
+<p class="flag" id="flag"></p>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search)
+
+let userId = params.get("userId")
+
+if(!userId){
+
+document.body.innerHTML = "<h2>Unauthorized Access</h2>"
+}
+
+else if(userId == "1"){
+
+document.getElementById("welcome").innerText="Welcome Student"
+document.getElementById("content").innerText="Your grades and records are displayed here."
+
+}
+
+else if(userId == "2"){
+
+document.getElementById("welcome").innerText="Welcome Admin"
+document.getElementById("content").innerText="Admin panel access granted."
+
+document.getElementById("flag").innerText="flag{idor_privilege_escalation}"
+
+}
+
+</script>
+
+</body>
+</html>
