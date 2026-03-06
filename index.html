@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Employee Portal Login</title>
+<title>Student Portal Login</title>
 
 <style>
 
@@ -15,72 +15,81 @@ align-items:center;
 height:100vh;
 }
 
-.login-box{
+.container{
 background:#1e293b;
 padding:30px;
 border-radius:10px;
 width:300px;
+text-align:center;
 }
 
 input{
-width:100%;
+width:90%;
 padding:10px;
-margin-top:10px;
+margin:10px;
 border:none;
 border-radius:5px;
 }
 
 button{
-margin-top:15px;
-width:100%;
-padding:10px;
-background:#3b82f6;
+padding:10px 20px;
+background:#22c55e;
 border:none;
 color:white;
 border-radius:5px;
 cursor:pointer;
 }
 
-</style>
+.error{
+color:#f87171;
+}
 
+</style>
 </head>
 
 <body>
 
-<div class="login-box">
+<div class="container">
 
-<h2>Employee Login</h2>
+<h2>Student Portal</h2>
 
 <input id="username" placeholder="Username">
 <input id="password" type="password" placeholder="Password">
 
 <button onclick="login()">Login</button>
 
-<p id="msg"></p>
+<p class="error" id="error"></p>
 
 </div>
 
 <script>
 
-// hardcoded credentials
-const USERNAME = "employee";
-const PASSWORD = "password123";
+/*
+Developer Note:
+Test Accounts
+
+student : student123
+admin : superadmin123
+
+TODO:
+Move authentication to backend before production
+*/
 
 function login(){
 
-let user = document.getElementById("username").value;
-let pass = document.getElementById("password").value;
+let username = document.getElementById("username").value
+let password = document.getElementById("password").value
 
-if(user === USERNAME && pass === PASSWORD){
-
-// redirect with user id
-window.location = "dashboard.html?user=1";
-
+if(username === "student" && password === "student123"){
+window.location = "dashboard.html?userId=1"
 }
+
+else if(username === "admin" && password === "superadmin123"){
+window.location = "dashboard.html?userId=2"
+}
+
 else{
-
-document.getElementById("msg").innerText="Invalid credentials";
-
+document.getElementById("error").innerText="Invalid credentials"
 }
 
 }
