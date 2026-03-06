@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Employee Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#111827;
+color:white;
+padding:40px;
+}
+
+.card{
+background:#1f2937;
+padding:20px;
+border-radius:10px;
+width:400px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Employee Dashboard</h1>
+
+<div class="card" id="content"></div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+const user = params.get("user");
+
+let data = {
+"1": {
+name:"Regular Employee",
+message:"Welcome employee!"
+},
+
+"2": {
+name:"Administrator",
+message:"flag{idor_admin_access}"
+}
+
+};
+
+if(data[user]){
+
+document.getElementById("content").innerHTML = `
+<h2>${data[user].name}</h2>
+<p>${data[user].message}</p>
+`;
+
+}
+else{
+
+document.getElementById("content").innerText="User not found";
+
+}
+
+</script>
+
+</body>
+
+</html>
