@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Portal Login</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#0f172a;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.login-box{
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+width:300px;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:none;
+border-radius:5px;
+}
+
+button{
+margin-top:15px;
+width:100%;
+padding:10px;
+background:#3b82f6;
+border:none;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>Employee Login</h2>
+
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+
+// hardcoded credentials
+const USERNAME = "employee";
+const PASSWORD = "password123";
+
+function login(){
+
+let user = document.getElementById("username").value;
+let pass = document.getElementById("password").value;
+
+if(user === USERNAME && pass === PASSWORD){
+
+// redirect with user id
+window.location = "dashboard.html?user=1";
+
+}
+else{
+
+document.getElementById("msg").innerText="Invalid credentials";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
